@@ -31,8 +31,8 @@ export class LengthconvertorComponent {
       return;
     }
 
-    this.httpclient.get<string[]>(this.baseUrl + 'api/length/' + this.coversionForm.controls['conversionvalue'].value + '/' + this.coversionForm.controls['conversionto'].value).subscribe(result => {
-      this.OutputValue = result[1];
+    this.httpclient.get<string[]>(this.baseUrl + 'api/length/' + this.coversionForm.controls['conversionvalue'].value + '/' + this.coversionForm.controls['conversionfrom'].value + '/' + this.coversionForm.controls['conversionto'].value).subscribe(result => {
+      this.OutputValue = result[0] + " = " + result[1];
     }, error => console.error(error));
 
 

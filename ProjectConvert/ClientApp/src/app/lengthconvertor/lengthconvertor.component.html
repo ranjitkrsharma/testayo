@@ -1,7 +1,7 @@
 <form [formGroup]="coversionForm" (ngSubmit)="onClickSubmit()">
   <div class="card text-center w-50 mx-auto mt-5">
     <div class="card-header bg-primary">
-      <h3>Length Conversion Calculator</h3>
+      <h3>Length Conversion</h3>
     </div>
 
     <div class="card-body">
@@ -11,17 +11,39 @@
       </div>
 
       <div class="form-group row d-flex justify-content-center align-items-center">
+        <label for="conversionto" class="col-form-label col-sm-2 text-right">From:</label>
+        <select name="input" formControlName="conversionfrom">
+          <option value="metre">metre</option>
+          <option value="kilometre">kilometre</option>
+          <option value="metre">metre</option>
+          <option value="centimetre">centimetre</option>
+          <option value="millimetre">millimetre</option>
+          <option value="feet">feet</option>
+          <option value="yard">yard</option>
+          <option value="mile">mile</option>
+          <option value="inch">inch</option>
+        </select>
+      </div>
+
+      <div class="form-group row d-flex justify-content-center align-items-center">
         <label for="conversionto" class="col-form-label col-sm-2 text-right">To:</label>
         <select name="input" formControlName="conversionto">
-          <option value="mile">KM to Mile</option>
-          <option value="km">Mile to KM</option>
+          <option value="metre">metre</option>
+          <option value="kilometre">kilometre</option>
+          <option value="metre">metre</option>
+          <option value="centimetre">centimetre</option>
+          <option value="millimetre">millimetre</option>
+          <option value="feet">feet</option>
+          <option value="yard">yard</option>
+          <option value="mile">mile</option>
+          <option value="inch">inch</option>
         </select>
       </div>
     </div>
     <div class="card-footer">
       <button type="submit" class="btn btn-primary mr-2">Convert</button>
     </div>
+    <label>Result : {{OutputValue}}</label>
 
   </div>
 </form>
-<label>Result : {{OutputValue}}</label>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProjectConvert.Conversion;
 
 namespace ConverterAPI.Controllers
 {
@@ -25,6 +26,17 @@ namespace ConverterAPI.Controllers
             if (UnitOfMeasure.Equals("km")) { value = (unitVal * 1.6); }
             else if (UnitOfMeasure.Equals("mile")) { value = (unitVal / 1.6); }
             return new string[] { unitVal.ToString(), value.ToString() };
+        }
+
+        // GET api/length/5/km/mile
+        [HttpGet("{unitVal}/{UnitOfMeasureFrom}/{UnitOfMeasureTo}")]
+        public ActionResult<IEnumerable<string>> Get(double unitVal, string UnitOfMeasureFrom, string UnitOfMeasureTo)
+        {
+            double lbValue;
+            var convertor = new DistanceConverter(UnitOfMeasureFrom, UnitOfMeasureTo);
+            lbValue = convertor.LeftToRight(unitVal);
+
+            return new string[] { unitVal.ToString() + " " + UnitOfMeasureFrom, lbValue.ToString() + " " + UnitOfMeasureTo };
         }
 
         // POST api/temperature
