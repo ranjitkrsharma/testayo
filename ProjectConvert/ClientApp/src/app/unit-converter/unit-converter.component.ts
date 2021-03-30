@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-unit-converter',
@@ -11,22 +12,29 @@ export class UnitConverterComponent {
 
   coversionForm: FormGroup;
   OutputValue;
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  httpclient: HttpClient;
+  baseUrl: string;
+  constructor(private formBuilder: FormBuilder, private router: Router, http: HttpClient, @Inject('BASE_URL')  baseUrl: string) {
     this.coversionForm = this.formBuilder.group({
       conversionvalue: ['', Validators.required],
       conversionfrom: ['kg', Validators.required],
       conversionto: ['pound', Validators.required]
-    }); }
+    });
+    this.httpclient = http;
+    this.baseUrl = baseUrl;
+  }
 
   
 
   onClickSubmit() {
-    this.OutputValue = "value";
-    alert("Entered Email id : ");
 
     if (!this.coversionForm.valid) {
       return;
     }
+
+    this.httpclient.get<string[]>(this.baseUrl + 'api/mass/' + this.coversionForm.controls['conversionvalue'].value + '/' + this.coversionForm.controls['conversionto'].value).subscribe(result => {
+      this.OutputValue = result[1];
+    }, error => console.error(error));
 
  
   }

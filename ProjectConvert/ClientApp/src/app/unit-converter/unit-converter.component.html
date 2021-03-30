@@ -9,18 +9,19 @@
         <label for="conversionvalue" class="col-form-label col-sm-2 text-right">value:</label>
         <input type="text" formControlName="conversionvalue" />
       </div>
-      <div class="form-group row d-flex justify-content-center align-items-center">
-        <label for="conversionfrom" class="col-form-label col-sm-2 text-right">From:</label>
-        <select name="input" formControlName="conversionfrom">
-          <option value="kg">kilogram (kg)</option>
-          <option value="pound">pound</option>
-        </select>
-      </div>
+     
+      <!--<div class="form-group row d-flex justify-content-center align-items-center">
+    <label for="conversionfrom" class="col-form-label col-sm-2 text-right">From:</label>
+    <select name="input" formControlName="conversionfrom">
+      <option value="kg">kilogram (kg)</option>
+      <option value="pound">pound</option>
+    </select>
+  </div>-->
       <div class="form-group row d-flex justify-content-center align-items-center">
         <label for="conversionto" class="col-form-label col-sm-2 text-right">To:</label>
         <select name="input" formControlName="conversionto">
-          <option value="kg">kilogram (kg)</option>
-          <option value="pound">pound</option>
+          <option value="kg">pound to kilogram (kg)</option>
+          <option value="pound">kilogram (kg) to pound</option>
         </select>
       </div>
     </div>
@@ -30,4 +31,4 @@
 
   </div>
 </form>
-<label>Value {{OutputValue}}</label>
+<label>Result : {{OutputValue}}</label>

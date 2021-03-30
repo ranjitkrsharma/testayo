@@ -22,8 +22,8 @@ namespace ConverterAPI.Controllers
         public ActionResult<IEnumerable<string>> Get(double unitVal, string UnitOfMeasure)
         {// Enter with kg, convert to pound. Enter with pound, convert to kg
             double value = 0;
-            if (UnitOfMeasure.Equals("kg")) { value = (unitVal * 2.204623); } 
-            else if (UnitOfMeasure.Equals("pound")) { value = (unitVal / 2.204623); } 
+            if (UnitOfMeasure.Equals("kg")) { value = (unitVal * 0.45359237); } 
+            else if (UnitOfMeasure.Equals("pound")) { value = (unitVal / 0.45359237); } 
             return new string[] { unitVal.ToString(), value.ToString() };
         }
 
