@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { UnitConverterComponent } from './unit-converter/unit-converter.component';
 import { LengthconvertorComponent } from './lengthconvertor/lengthconvertor.component';
 import { TemperatureconverterComponent } from './temperatureconverter/temperatureconverter.component';
+import { VolumeconverterComponent } from './volumeconverter/volumeconverter.component';
+import { AreaconverterComponent } from './areaconverter/areaconverter.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
@@ -26,6 +28,8 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     UnitConverterComponent,
     LengthconvertorComponent,
     TemperatureconverterComponent,
+    VolumeconverterComponent,
+    AreaconverterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -39,6 +43,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
       { path: 'unit-convert', component: UnitConverterComponent, canActivate: [AuthorizeGuard]},
       { path: 'length-convert', component: LengthconvertorComponent, canActivate: [AuthorizeGuard]},
       { path: 'temperature-convert', component: TemperatureconverterComponent, canActivate: [AuthorizeGuard] },
+      { path: 'volume-convert', component: VolumeconverterComponent, canActivate: [AuthorizeGuard] },
+      { path: 'area-convert', component: AreaconverterComponent, canActivate: [AuthorizeGuard] },
+      
     ])
   ],
   providers: [

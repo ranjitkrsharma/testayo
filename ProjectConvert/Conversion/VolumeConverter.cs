@@ -22,7 +22,6 @@ namespace ProjectConvert.Conversion
             { new UnitFactorSynonyms("US pint", "US pt", "US p"), 2.11337643513819 },
             { new UnitFactorSynonyms("US gallon", "US gal"), 0.264172 },
             { new UnitFactorSynonyms("US quart", "US qt"), 2.11338 },
-
         };
         
         public VolumeConverter(string leftUnit, string rightUnit)

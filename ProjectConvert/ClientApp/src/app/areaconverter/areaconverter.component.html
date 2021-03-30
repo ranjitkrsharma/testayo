@@ -1,0 +1,52 @@
+<form [formGroup]="coversionForm" (ngSubmit)="onClickSubmit()">
+  <div class="card text-center w-50 mx-auto mt-5">
+    <div class="card-header bg-primary">
+      <h3>Area Conversion</h3>
+    </div>
+
+    <div class="card-body">
+      <div class="form-group row d-flex justify-content-center align-items-center">
+        <label for="conversionvalue" class="col-form-label col-sm-2 text-right">Value:</label>
+        <input type="text" formControlName="conversionvalue" />
+      </div>
+
+      <div class="form-group row d-flex justify-content-center align-items-center">
+        <label for="conversionto" class="col-form-label col-sm-2 text-right">From:</label>
+        <select name="input" formControlName="conversionfrom">
+          <option value="square metre">square metre</option>
+          <option value="square kilometre">square kilometre</option>
+          <option value="square centimetre">square centimetre</option>
+          <option value="square millimetre">square millimetre</option>
+          <option value="square feet">square feet</option>
+          <option value="square yard">square yard</option>
+          <option value="are">are</option>
+          <option value="hectare">hectare</option>
+          <option value="square inch">square inch</option>
+          <option value="square mile">square mile</option>
+        </select>
+      </div>
+
+      <div class="form-group row d-flex justify-content-center align-items-center">
+        <label for="conversionto" class="col-form-label col-sm-2 text-right">To:</label>
+        <select name="input" formControlName="conversionto">
+          <option value="square metre">square metre</option>
+          <option value="square kilometre">square kilometre</option>
+          <option value="square centimetre">square centimetre</option>
+          <option value="square millimetre">square millimetre</option>
+          <option value="square feet">square feet</option>
+          <option value="square yard">square yard</option>
+          <option value="are">are</option>
+          <option value="hectare">hectare</option>
+          <option value="square inch">square inch</option>
+          <option value="square mile">square mile</option>
+        </select>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary mr-2">Convert</button>
+    </div>
+    <label>Result : {{OutputValue}}</label>
+
+  </div>
+</form>
+
