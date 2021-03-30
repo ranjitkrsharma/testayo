@@ -18,7 +18,7 @@ export class UnitConverterComponent {
     this.coversionForm = this.formBuilder.group({
       conversionvalue: ['', Validators.required],
       conversionfrom: ['kg', Validators.required],
-      conversionto: ['pound', Validators.required]
+      conversionto: ['lbs', Validators.required]
     });
     this.httpclient = http;
     this.baseUrl = baseUrl;
@@ -32,8 +32,8 @@ export class UnitConverterComponent {
       return;
     }
 
-    this.httpclient.get<string[]>(this.baseUrl + 'api/mass/' + this.coversionForm.controls['conversionvalue'].value + '/' + this.coversionForm.controls['conversionto'].value).subscribe(result => {
-      this.OutputValue = result[1];
+    this.httpclient.get<string[]>(this.baseUrl + 'api/mass/' + this.coversionForm.controls['conversionvalue'].value + '/' + this.coversionForm.controls['conversionfrom'].value + '/' + this.coversionForm.controls['conversionto'].value).subscribe(result => {
+      this.OutputValue = result[0]+" = "+result[1];
     }, error => console.error(error));
 
  

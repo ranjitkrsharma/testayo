@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProjectConvert.Conversion;
 
 namespace ConverterAPI.Controllers
 {
@@ -25,6 +26,17 @@ namespace ConverterAPI.Controllers
             if (UnitOfMeasure.Equals("kg")) { value = (unitVal * 0.45359237); } 
             else if (UnitOfMeasure.Equals("pound")) { value = (unitVal / 0.45359237); } 
             return new string[] { unitVal.ToString(), value.ToString() };
+        }
+
+        // GET api/mass/5/kg/lbs
+        [HttpGet("{unitVal}/{UnitOfMeasureFrom}/{UnitOfMeasureTo}")]
+        public ActionResult<IEnumerable<string>> Get(double unitVal, string UnitOfMeasureFrom, string UnitOfMeasureTo)
+        {
+            double lbValue;
+            var convertor = new MassConverter(UnitOfMeasureFrom, UnitOfMeasureTo);
+            lbValue = convertor.LeftToRight(unitVal);
+                  
+            return new string[] { unitVal.ToString() +" "+ UnitOfMeasureFrom, lbValue.ToString() + " " + UnitOfMeasureTo };
         }
 
         // POST api/temperature
