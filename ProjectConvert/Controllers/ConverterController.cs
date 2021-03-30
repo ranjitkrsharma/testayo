@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using ConverterAPI.Entities;
 using ConverterAPI.Repository.Contract;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ConverterAPI
 {
