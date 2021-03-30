@@ -22,8 +22,8 @@ namespace ConverterAPI.Controllers
         public ActionResult<IEnumerable<string>> Get(double unitVal, string UnitOfMeasure)
         {// Enter with km, convert to mile. Enter with mile, convert to km
             double value = 0;
-            if (UnitOfMeasure.Equals("km")) { value = (unitVal * 0.62); }
-            else if (UnitOfMeasure.Equals("mile")) { value = (unitVal / 0.62); }
+            if (UnitOfMeasure.Equals("km")) { value = (unitVal * 1.6); }
+            else if (UnitOfMeasure.Equals("mile")) { value = (unitVal / 1.6); }
             return new string[] { unitVal.ToString(), value.ToString() };
         }
 

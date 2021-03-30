@@ -1,7 +1,7 @@
 <form [formGroup]="coversionForm" (ngSubmit)="onClickSubmit()">
   <div class="card text-center w-50 mx-auto mt-5">
     <div class="card-header bg-primary">
-      <h3>Weight (Mass) Conversion Calculator</h3>
+      <h3>Length Conversion Calculator</h3>
     </div>
 
     <div class="card-body">
@@ -9,12 +9,12 @@
         <label for="conversionvalue" class="col-form-label col-sm-2 text-right">value:</label>
         <input type="text" formControlName="conversionvalue" />
       </div>
-     
+
       <div class="form-group row d-flex justify-content-center align-items-center">
         <label for="conversionto" class="col-form-label col-sm-2 text-right">To:</label>
         <select name="input" formControlName="conversionto">
-          <option value="kg">pound to kilogram (kg)</option>
-          <option value="pound">kilogram (kg) to pound</option>
+          <option value="mile">KM to Mile</option>
+          <option value="km">Mile to KM</option>
         </select>
       </div>
     </div>
