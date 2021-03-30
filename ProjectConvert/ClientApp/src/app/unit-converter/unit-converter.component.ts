@@ -7,42 +7,31 @@ import { Router, ActivatedRoute } from '@angular/router';
     templateUrl: './unit-converter.component.html',
     styleUrls: ['./unit-converter.component.scss']
 })
-export class UnitConverterComponent implements OnInit{
+export class UnitConverterComponent {
 
   coversionForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,  private router: Router) { }
-
-  ngOnInit() {
+  OutputValue;
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.coversionForm = this.formBuilder.group({
       conversionvalue: ['', Validators.required],
-      conversionfrom: ['', Validators.required],
-      conversionto: ['',  Validators.required]
-    });
-  }
+      conversionfrom: ['kg', Validators.required],
+      conversionto: ['pound', Validators.required]
+    }); }
 
+  
 
-  onClickSubmit(data) {
-    alert("Entered Email id : " + data);
+  onClickSubmit() {
+    this.OutputValue = "value";
+    alert("Entered Email id : ");
 
     if (!this.coversionForm.valid) {
       return;
     }
 
-    //if (this.title == "Create") {
-    //  this._employeeService.saveEmployee(this.employeeForm.value)
-    //    .subscribe((data) => {
-    //      this._router.navigate(['/fetch-employee']);
-    //    }, error => this.errorMessage = error)
-    //}
-    //else if (this.title == "Edit") {
-    //  this._employeeService.updateEmployee(this.employeeForm.value)
-    //    .subscribe((data) => {
-    //      this._router.navigate(['/fetch-employee']);
-    //    }, error => this.errorMessage = error)
-    //}
+ 
   }
 
   cancel() {
-    this.router.navigate(['/fetch-employee']);
+    this.router.navigate(['/unit-converter']);
   }
 }

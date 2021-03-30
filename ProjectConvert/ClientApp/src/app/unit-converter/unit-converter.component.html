@@ -1,4 +1,4 @@
-<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="coversionForm" (ngSubmit)="onClickSubmit()">
   <div class="card text-center w-50 mx-auto mt-5">
     <div class="card-header bg-primary">
       <h3>Weight (Mass) Conversion Calculator</h3>
@@ -6,21 +6,28 @@
 
     <div class="card-body">
       <div class="form-group row d-flex justify-content-center align-items-center">
-        <label for="conversionvalue" class="col-form-label col-sm-2 text-right">conversion value:</label>
+        <label for="conversionvalue" class="col-form-label col-sm-2 text-right">value:</label>
         <input type="text" formControlName="conversionvalue" />
       </div>
       <div class="form-group row d-flex justify-content-center align-items-center">
-        <label for="conversionfrom" class="col-form-label col-sm-2 text-right">conversion from:</label>
-        <input type="text" formControlName="conversionfrom" />
+        <label for="conversionfrom" class="col-form-label col-sm-2 text-right">From:</label>
+        <select name="input" formControlName="conversionfrom">
+          <option value="kg">kilogram (kg)</option>
+          <option value="pound">pound</option>
+        </select>
       </div>
       <div class="form-group row d-flex justify-content-center align-items-center">
-        <label for="conversionto" class="col-form-label col-sm-2 text-right">conversion to:</label>
-        <input type="text" formControlName="conversionfrom" />
+        <label for="conversionto" class="col-form-label col-sm-2 text-right">To:</label>
+        <select name="input" formControlName="conversionto">
+          <option value="kg">kilogram (kg)</option>
+          <option value="pound">pound</option>
+        </select>
       </div>
     </div>
     <div class="card-footer">
-      <button class="btn btn-primary mr-2">Sign Up</button>
+      <button type="submit" class="btn btn-primary mr-2">Convert</button>
     </div>
 
   </div>
 </form>
+<label>Value {{OutputValue}}</label>
