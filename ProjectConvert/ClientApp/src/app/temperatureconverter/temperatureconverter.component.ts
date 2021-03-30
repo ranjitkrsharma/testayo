@@ -4,13 +4,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-    selector: 'app-lengthconvertor',
-    templateUrl: './lengthconvertor.component.html',
-    styleUrls: ['./lengthconvertor.component.scss']
+    selector: 'app-temperatureconverter',
+    templateUrl: './temperatureconverter.component.html',
+    styleUrls: ['./temperatureconverter.component.scss']
 })
-/** lengthconvertor component*/
-export class LengthconvertorComponent {
-    /** lengthconvertor ctor */
+/** temperatureconverter component*/
+export class TemperatureconverterComponent {
+    /** temperatureconverter ctor */
   coversionForm: FormGroup;
   OutputValue;
   httpclient: HttpClient;
@@ -18,12 +18,14 @@ export class LengthconvertorComponent {
   constructor(private formBuilder: FormBuilder, private router: Router, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.coversionForm = this.formBuilder.group({
       conversionvalue: ['', Validators.required],
-      conversionfrom: ['kilometre', Validators.required],
-      conversionto: ['mile', Validators.required]
+      conversionfrom: ['Celsius', Validators.required],
+      conversionto: ['Fahrenheit', Validators.required]
     });
     this.httpclient = http;
     this.baseUrl = baseUrl;
   }
+
+
 
   onClickSubmit() {
 
@@ -31,7 +33,7 @@ export class LengthconvertorComponent {
       return;
     }
 
-    this.httpclient.get<string[]>(this.baseUrl + 'api/length/' + this.coversionForm.controls['conversionvalue'].value + '/' + this.coversionForm.controls['conversionfrom'].value + '/' + this.coversionForm.controls['conversionto'].value).subscribe(result => {
+    this.httpclient.get<string[]>(this.baseUrl + 'api/temperature/' + this.coversionForm.controls['conversionvalue'].value + '/' + this.coversionForm.controls['conversionfrom'].value + '/' + this.coversionForm.controls['conversionto'].value).subscribe(result => {
       this.OutputValue = result[0] + " = " + result[1];
     }, error => console.error(error));
 
@@ -39,6 +41,6 @@ export class LengthconvertorComponent {
   }
 
   cancel() {
-    this.router.navigate(['/length-convert']);
+    this.router.navigate(['/temperature-convert']);
   }
 }

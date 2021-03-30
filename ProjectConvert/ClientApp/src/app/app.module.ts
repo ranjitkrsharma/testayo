@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { UnitConverterComponent } from './unit-converter/unit-converter.component';
 import { LengthconvertorComponent } from './lengthconvertor/lengthconvertor.component';
+import { TemperatureconverterComponent } from './temperatureconverter/temperatureconverter.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
@@ -24,6 +25,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     FetchDataComponent,
     UnitConverterComponent,
     LengthconvertorComponent,
+    TemperatureconverterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,8 +36,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-      { path: 'unit-convert', component: UnitConverterComponent },
-      { path: 'length-convert', component: LengthconvertorComponent },
+      { path: 'unit-convert', component: UnitConverterComponent, canActivate: [AuthorizeGuard]},
+      { path: 'length-convert', component: LengthconvertorComponent, canActivate: [AuthorizeGuard]},
+      { path: 'temperature-convert', component: TemperatureconverterComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
   providers: [
